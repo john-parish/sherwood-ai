@@ -1,113 +1,745 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maid To Tidy - Algona Cleaning Services</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        header { background: #2a7d62; color: white; padding: 2rem; text-align: center; }
-        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        h2 { color: #2a7d62; margin: 1.5rem 0 1rem; }
-        section { padding: 2rem; max-width: 1000px; margin: 0 auto; }
-        .service-card { background: #f2ede3; padding: 1.5rem; margin: 1rem 0; border-radius: 8px; }
-        .guarantee-box { background: #1a5242; color: white; padding: 2rem; border-radius: 8px; margin: 2rem 0; }
-        form { background: #f9f9f9; padding: 2rem; border-radius: 8px; }
-        input, textarea, select { width: 100%; padding: 0.8rem; margin: 0.5rem 0 1rem; border: 1px solid #ddd; border-radius: 4px; font-family: Arial; }
-        button { background: #2a7d62; color: white; padding: 1rem 2rem; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; }
-        button:hover { background: #1a5242; }
-        .contact-info { background: #d4f0e8; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
-        .contact-info p { margin: 0.5rem 0; }
-        footer { background: #111d19; color: white; text-align: center; padding: 2rem; }
-        .success { display: none; background: #d4f0e8; color: #1a5242; padding: 1rem; border-radius: 4px; margin: 1rem 0; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sparkle & Shine Cleaning Co. — Springfield, IL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --mint: #d4f0e8;
+    --mint-mid: #9edecb;
+    --green: #2a7d62;
+    --green-dark: #1a5242;
+    --cream: #faf8f3;
+    --warm: #f2ede3;
+    --text: #1c2b26;
+    --muted: #5a7068;
+    --gold: #c8a96e;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 2.5rem;
+    background: rgba(250,248,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(42,125,98,0.12);
+  }
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--green-dark);
+    letter-spacing: -0.02em;
+  }
+  .logo span { color: var(--gold); font-style: italic; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 0.88rem; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--green); }
+  .nav-cta {
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 0.65rem 1.4rem;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 2.5rem 4rem;
+    gap: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -150px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: var(--mint);
+    opacity: 0.5;
+    z-index: 0;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 10%;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--mint);
+    opacity: 0.3;
+    z-index: 0;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 560px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--mint);
+    color: var(--green-dark);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .hero-tag::before { content: '✦'; font-size: 10px; }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.08;
+    color: var(--green-dark);
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--green); }
+  .hero p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    max-width: 440px;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--green);
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 100px;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--green);
+    padding: 0.9rem 2rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--green);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--mint); }
+
+  .hero-visual {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .hero-card-main {
+    background: var(--green-dark);
+    border-radius: 24px;
+    padding: 2.5rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card-main::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .hero-card-main .big-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4.5rem;
+    line-height: 1;
+    color: var(--mint-mid);
+    margin-bottom: 0.3rem;
+  }
+  .hero-card-main p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+  .hero-cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .hero-card-sm {
+    background: white;
+    border-radius: 18px;
+    padding: 1.4rem;
+    border: 1px solid rgba(42,125,98,0.1);
+  }
+  .hero-card-sm .icon {
+    width: 40px; height: 40px;
+    background: var(--mint);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  .hero-card-sm h4 { font-size: 0.88rem; font-weight: 500; color: var(--text); margin-bottom: 0.2rem; }
+  .hero-card-sm p { font-size: 0.8rem; color: var(--muted); font-weight: 300; }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--green);
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 0.6rem;
+    color: white; font-size: 0.88rem; font-weight: 400;
+  }
+  .trust-item span { color: var(--mint-mid); font-size: 1rem; }
+
+  /* SECTION COMMON */
+  section { padding: 6rem 2.5rem; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1rem; display: block;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--green-dark);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .section-sub { color: var(--muted); font-size: 1rem; font-weight: 300; line-height: 1.7; max-width: 520px; }
+
+  /* SERVICES */
+  #services { background: var(--white); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+  .service-card {
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(42,125,98,0.1);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: default;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(42,125,98,0.1); }
+  .service-card.accent { background: var(--green-dark); border-color: transparent; }
+  .service-card.accent h3, .service-card.accent p, .service-card.accent .price { color: white; }
+  .service-card.accent .price { color: var(--mint-mid); }
+  .service-card.light { background: var(--warm); }
+  .svc-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.3rem;
+    background: var(--mint);
+  }
+  .service-card.accent .svc-icon { background: rgba(255,255,255,0.12); }
+  .service-card h3 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.6rem; color: var(--text); }
+  .service-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; font-weight: 300; margin-bottom: 1.2rem; }
+  .price { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--green); }
+  .price-note { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+
+  /* PROCESS */
+  #process { background: var(--cream); }
+  .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; }
+  .process-steps { display: flex; flex-direction: column; gap: 0; }
+  .process-step {
+    display: flex; gap: 1.5rem;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid rgba(42,125,98,0.1);
+    position: relative;
+  }
+  .process-step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: var(--mint-mid);
+    line-height: 1;
+    min-width: 48px;
+    font-weight: 400;
+  }
+  .step-content h4 { font-size: 1rem; font-weight: 500; margin-bottom: 0.4rem; color: var(--text); }
+  .step-content p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+  .process-visual {
+    background: var(--green-dark);
+    border-radius: 28px;
+    padding: 3rem;
+    color: white;
+  }
+  .process-visual h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--mint-mid);
+    font-style: italic;
+  }
+  .guarantee-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+  .g-icon { font-size: 1.2rem; margin-top: 2px; }
+  .guarantee-item h5 { font-size: 0.92rem; font-weight: 500; margin-bottom: 0.2rem; }
+  .guarantee-item p { font-size: 0.82rem; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.5; }
+
+  /* REVIEWS */
+  #reviews { background: var(--warm); }
+  .reviews-header { margin-bottom: 3.5rem; }
+  .stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: 0.8rem; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .review-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.8rem;
+    border: 1px solid rgba(42,125,98,0.08);
+    transition: transform 0.2s;
+  }
+  .review-card:hover { transform: translateY(-3px); }
+  .review-text { font-size: 0.92rem; color: var(--text); line-height: 1.7; font-style: italic; margin-bottom: 1.4rem; font-weight: 300; }
+  .reviewer { display: flex; align-items: center; gap: 0.8rem; }
+  .avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--mint);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 500; font-size: 0.88rem; color: var(--green-dark);
+  }
+  .reviewer-name { font-size: 0.88rem; font-weight: 500; }
+  .reviewer-meta { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+
+  /* BOOKING */
+  #booking {
+    background: var(--green-dark);
+    color: white;
+  }
+  .booking-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  #booking .section-title { color: white; }
+  #booking .section-sub { color: rgba(255,255,255,0.6); }
+  #booking .section-label { color: var(--mint-mid); }
+  .booking-info { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
+  .info-item { display: flex; align-items: center; gap: 1rem; }
+  .info-item .ic { font-size: 1rem; width: 36px; height: 36px; background: rgba(255,255,255,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+  .info-item p { font-size: 0.88rem; color: rgba(255,255,255,0.75); font-weight: 300; }
+  .form-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem;
+  }
+  .form-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--green-dark); margin-bottom: 1.5rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 500; color: var(--muted); margin-bottom: 0.4rem; letter-spacing: 0.02em; text-transform: uppercase; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1.5px solid rgba(42,125,98,0.15);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    color: var(--text);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--green); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .submit-btn {
+    width: 100%;
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 0.5rem;
+  }
+  .submit-btn:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: #111d19;
+    color: rgba(255,255,255,0.6);
+    padding: 3rem 2.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .footer-logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: white; }
+  .footer-logo span { color: var(--gold); font-style: italic; }
+  footer p { font-size: 0.82rem; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--mint-mid); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content > * { animation: fadeUp 0.7s ease both; }
+  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-visual { animation: fadeUp 0.8s 0.3s ease both; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 2.5rem; }
+    .hero::before { width: 300px; height: 300px; top: -50px; right: -80px; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+    .process-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .booking-inner { grid-template-columns: 1fr; gap: 3rem; }
+    section { padding: 4rem 1.5rem; }
+    .trust-bar { gap: 1.5rem; padding: 1rem 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Maid To Tidy</h1>
-        <p>Professional Cleaning Services for Algona & Surrounding Areas</p>
-    </header>
 
-    <section>
-        <h2>Contact Information</h2>
-        <div class="contact-info">
-            <p><strong>Phone:</strong> (281) 644-9999</p>
-            <p><strong>Email:</strong> jpparish15@gmail.com</p>
-            <p><strong>Service Area:</strong> Algona & surrounding towns</p>
+<!-- NAV -->
+<nav>
+  <div class="logo">Sparkle <span>&</span> Shine</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How it works</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#booking">Contact</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Get a free quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Springfield, IL's #1 Rated Cleaning Service</div>
+    <h1>A spotless home, <em>every single time</em></h1>
+    <p>Professional, eco-friendly cleaning services for homes and offices. Background-checked staff, flexible scheduling, and a 100% satisfaction guarantee.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-primary">Book your clean</a>
+      <a href="tel:+12175550194" class="btn-secondary">☎ (217) 555-0194</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-main">
+      <div class="big-num">500+</div>
+      <p>Happy homes cleaned in Springfield this year</p>
+    </div>
+    <div class="hero-cards-row">
+      <div class="hero-card-sm">
+        <div class="icon">🌿</div>
+        <h4>Eco-friendly</h4>
+        <p>Safe for kids, pets & the planet</p>
+      </div>
+      <div class="hero-card-sm">
+        <div class="icon">✓</div>
+        <h4>Fully insured</h4>
+        <p>Licensed & background checked</p>
+      </div>
+      <div class="hero-card-sm">
+        <div class="icon">⭐</div>
+        <h4>5-star rated</h4>
+        <p>4.9/5 on Google Reviews</p>
+      </div>
+      <div class="hero-card-sm">
+        <div class="icon">📅</div>
+        <h4>Easy booking</h4>
+        <p>Online in under 2 minutes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span>✦</span> Licensed & Insured</div>
+  <div class="trust-item"><span>✦</span> Eco-Friendly Products</div>
+  <div class="trust-item"><span>✦</span> Background-Checked Staff</div>
+  <div class="trust-item"><span>✦</span> 100% Satisfaction Guarantee</div>
+  <div class="trust-item"><span>✦</span> Serving Springfield Since 2018</div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <span class="section-label">What we offer</span>
+      <h2 class="section-title">Cleaning services<br>for every need</h2>
+    </div>
+    <p class="section-sub">From a quick refresh to a deep top-to-bottom clean — we've got a package for you.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card light">
+      <div class="svc-icon">🏠</div>
+      <h3>Standard Clean</h3>
+      <p>Regular maintenance cleaning for kitchens, bathrooms, living areas, and bedrooms. Perfect for weekly or bi-weekly visits.</p>
+      <div class="price">From $99</div>
+      <div class="price-note">per visit · up to 3 bed/2 bath</div>
+    </div>
+    <div class="service-card accent">
+      <div class="svc-icon">✨</div>
+      <h3>Deep Clean</h3>
+      <p>A thorough top-to-bottom clean. Inside appliances, baseboards, ceiling fans, window sills, and all the places regular cleaning misses.</p>
+      <div class="price">From $199</div>
+      <div class="price-note">per visit · recommended first-time</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">📦</div>
+      <h3>Move In / Move Out</h3>
+      <p>Detailed cleaning when you're moving. We leave the place spotless for the next chapter — or make sure you get your deposit back.</p>
+      <div class="price">From $249</div>
+      <div class="price-note">per home · includes appliances</div>
+    </div>
+    <div class="service-card light">
+      <div class="svc-icon">🏢</div>
+      <h3>Office Cleaning</h3>
+      <p>Reliable commercial cleaning for small offices and storefronts. Weekly or bi-weekly. Scheduled around your business hours.</p>
+      <div class="price">Custom quote</div>
+      <div class="price-note">based on sq footage & frequency</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <span class="section-label">How it works</span>
+  <h2 class="section-title">Booked, cleaned,<br>and done — simply</h2>
+  <div class="process-grid">
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h4>Book online or by phone</h4>
+          <p>Fill out our quick form or call us. Tell us your home size, preferred date, and which service you need. Takes 2 minutes.</p>
         </div>
-    </section>
-
-    <section>
-        <h2>Our Services</h2>
-        <div class="service-card">
-            <h3>Standard Clean</h3>
-            <p><strong>Starting at $50 per visit</strong></p>
-            <p>Regular maintenance cleaning including kitchens, bathrooms, living areas, and bedrooms. Perfect for weekly or bi-weekly service.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h4>We confirm & send a cleaner</h4>
+          <p>You'll get a confirmation with your cleaner's name and arrival window. All staff are background-checked and trained.</p>
         </div>
-        <div class="service-card">
-            <h3>Deep Clean</h3>
-            <p><strong>Starting at $120 per visit</strong></p>
-            <p>A thorough top-to-bottom clean. We tackle baseboards, inside cabinets, ceiling fans, and all the details that standard cleaning misses.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h4>We clean while you relax</h4>
+          <p>Your cleaner arrives with all supplies. You don't need to be home — just leave a key or lockbox code.</p>
         </div>
-        <div class="service-card">
-            <h3>Move In / Move Out</h3>
-            <p><strong>Starting at $150 per home</strong></p>
-            <p>Professional cleaning when moving in or out. We ensure your home is spotless for the next chapter or help you get your deposit back.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h4>You come home to spotless</h4>
+          <p>We send a completion photo and follow up to make sure you're 100% happy. Not satisfied? We'll re-clean for free.</p>
         </div>
-    </section>
-
-    <section>
-        <h2>Quality Guarantee</h2>
-        <div class="guarantee-box">
-            <h3>We Guarantee Your Satisfaction</h3>
-            <p>Quality is guaranteed or we will fix it. If you're not completely satisfied with our work, we'll come back and make it right at no extra charge. Your satisfaction is our top priority.</p>
+      </div>
+    </div>
+    <div class="process-visual">
+      <h3>"We're not done until you're delighted."</h3>
+      <div class="guarantee-item">
+        <div class="g-icon">🛡</div>
+        <div>
+          <h5>Happiness guarantee</h5>
+          <p>If you're not satisfied, we come back and re-clean the areas in question — no charge, no hassle.</p>
         </div>
-    </section>
+      </div>
+      <div class="guarantee-item">
+        <div class="g-icon">🔒</div>
+        <div>
+          <h5>Fully insured & bonded</h5>
+          <p>Every cleaner on our team is covered under our $1M liability policy. Your home is always protected.</p>
+        </div>
+      </div>
+      <div class="guarantee-item">
+        <div class="g-icon">📋</div>
+        <div>
+          <h5>Consistent checklist</h5>
+          <p>Every clean follows our 50-point checklist so nothing ever gets missed, no matter who comes.</p>
+        </div>
+      </div>
+      <div class="guarantee-item">
+        <div class="g-icon">🌿</div>
+        <div>
+          <h5>Eco-friendly supplies</h5>
+          <p>We use non-toxic, biodegradable products that are safe for children, pets, and people with allergies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section>
-        <h2>Request a Cleaning</h2>
-        <form id="contactForm" method="POST" action="https://formspree.io/f/xojknroy">
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" required>
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-header">
+    <span class="section-label">What customers say</span>
+    <h2 class="section-title">4.9 stars across<br>200+ Google reviews</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"I've tried three cleaning services in Springfield and Sparkle & Shine is hands-down the best. My bathroom has never looked so good. They even organized under my sink without me asking!"</p>
+      <div class="reviewer">
+        <div class="avatar">JM</div>
+        <div>
+          <div class="reviewer-name">Jennifer M.</div>
+          <div class="reviewer-meta">Springfield, IL · Regular customer</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Used them for a move-out clean and got my full deposit back — $800! Worth every single penny. The apartment looked better than when I moved in. Will absolutely use again in my new place."</p>
+      <div class="reviewer">
+        <div class="avatar">DK</div>
+        <div>
+          <div class="reviewer-name">Derek K.</div>
+          <div class="reviewer-meta">Springfield, IL · Move-out clean</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"We have three dogs and two kids. I was skeptical anyone could get our house truly clean. These ladies proved me wrong. It smells amazing, everything shines, and they were so friendly."</p>
+      <div class="reviewer">
+        <div class="avatar">SR</div>
+        <div>
+          <div class="reviewer-name">Sarah R.</div>
+          <div class="reviewer-meta">Springfield, IL · Deep clean</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" required>
+<!-- BOOKING -->
+<section id="booking">
+  <div class="booking-inner">
+    <div>
+      <span class="section-label">Get in touch</span>
+      <h2 class="section-title">Ready for a<br>cleaner home?</h2>
+      <p class="section-sub">Fill out the form and we'll reach out within 2 hours with a quote and availability. No commitment required.</p>
+      <div class="booking-info">
+        <div class="info-item">
+          <div class="ic">📞</div>
+          <p>(217) 555-0194 — Mon–Sat, 8am–6pm</p>
+        </div>
+        <div class="info-item">
+          <div class="ic">✉</div>
+          <p>hello@sparkleshineIL.com</p>
+        </div>
+        <div class="info-item">
+          <div class="ic">📍</div>
+          <p>Serving Springfield, Chatham, Sherman & surrounding areas</p>
+        </div>
+        <div class="info-item">
+          <div class="ic">⏱</div>
+          <p>Same-week appointments usually available</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-card">
+      <h3>Get your free quote</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First name</label>
+          <input type="text" placeholder="Sarah">
+        </div>
+        <div class="form-group">
+          <label>Last name</label>
+          <input type="text" placeholder="Johnson">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone number</label>
+        <input type="tel" placeholder="(217) 555-0000">
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" placeholder="sarah@email.com">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Service type</label>
+          <select>
+            <option>Standard clean</option>
+            <option>Deep clean</option>
+            <option>Move in / move out</option>
+            <option>Office cleaning</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Home size</label>
+          <select>
+            <option>Studio / 1 bed</option>
+            <option>2 bed / 1 bath</option>
+            <option>3 bed / 2 bath</option>
+            <option>4+ bedrooms</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Anything else we should know?</label>
+        <textarea placeholder="Pets, allergies, special areas to focus on..."></textarea>
+      </div>
+      <button class="submit-btn" onclick="this.textContent='✓ Request sent! We\'ll be in touch shortly.'; this.style.background='#1a5242'">
+        Send my free quote request
+      </button>
+    </div>
+  </div>
+</section>
 
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Sparkle <span>&</span> Shine</div>
+  <p>© 2025 Sparkle & Shine Cleaning Co. · Springfield, IL · License #IL-2847</p>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#booking">Contact</a>
+    <a href="#">Privacy policy</a>
+  </div>
+</footer>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="service">Service Type:</label>
-            <select id="service" name="service" required>
-                <option value="">Select a service</option>
-                <option value="Standard Clean">Standard Clean - $50+</option>
-                <option value="Deep Clean">Deep Clean - $120+</option>
-                <option value="Move In/Out">Move In/Out - $150+</option>
-            </select>
-
-            <label for="date">Preferred Date:</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="message">Message (optional details about your cleaning needs):</label>
-            <textarea id="message" name="message" rows="4"></textarea>
-
-            <button type="submit">Send My Request</button>
-        </form>
-        <div id="successMessage" class="success">✓ Your request has been sent! We'll contact you soon.</div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Maid To Tidy. All rights reserved. Serving Algona & surrounding areas.</p>
-    </footer>
-
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            // The form will submit to Formspree
-            // After submission, you can show a success message
-        });
-    </script>
 </body>
 </html>
